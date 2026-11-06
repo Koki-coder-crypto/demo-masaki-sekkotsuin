@@ -1,0 +1,570 @@
+/* ============================================================
+   まさき接骨院 制作サンプル
+   テーマ：「姿勢検査表」— 検査用紙の罫線と、判子（整）の朱を基調に
+   デザイントークン
+   --ink   #232620 墨（本文）
+   --paper #FBFBF8 紙（背景）
+   --moss  #3E5C48 苔緑（主色）
+   --shu   #B3402A 朱（判子と「休」のみに使う差し色）
+   見出し: Shippori Mincho B1 / 本文: Zen Kaku Gothic New
+
+   構成の考え方
+   - 各セクションは検査用紙の「項目欄」。左に項目名（h2）、右に記入内容。
+   - 区切りは罫線のみ。箱・塗り・影は使わない。
+   - 朱は判子（ロゴ・ヒーロー）と休診表示だけ。
+   ============================================================ */
+:root {
+  --ink: #232620;
+  --ink-soft: #4c5147;
+  --paper: #fbfbf8;
+  --moss: #3e5c48;
+  --moss-deep: #2c4434;
+  --sage-pale: #eff3ea;
+  --line: #ccd3c2;
+  --shu: #b3402a;
+  --font-display: "Shippori Mincho B1", "Hiragino Mincho ProN", "Yu Mincho", "MS Mincho", serif;
+  --font-body: "Zen Kaku Gothic New", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif;
+  --label-w: 220px;
+  --gutter: 48px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.85;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--moss-deep); }
+a:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- デモバナー ---------- */
+.demo-banner {
+  background: var(--ink);
+  color: var(--paper);
+  text-align: center;
+  font-size: 12.5px;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+}
+
+/* ---------- 左レール（縦書き） ---------- */
+.site-rail { display: none; }
+@media (min-width: 1100px) {
+  body { padding-left: 60px; }
+  .site-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    position: fixed;
+    left: 0; top: 0; bottom: 0;
+    width: 60px;
+    border-right: 1px solid var(--line);
+    background: var(--paper);
+    padding-top: 120px;
+    z-index: 5;
+  }
+  .rail-text {
+    writing-mode: vertical-rl;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    letter-spacing: 0.35em;
+    color: var(--ink-soft);
+  }
+  .rail-line {
+    width: 1px;
+    flex: 1;
+    background: var(--line);
+  }
+}
+
+/* ---------- ヘッダー ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  border-bottom: 1px solid var(--line);
+  z-index: 10;
+}
+.header-inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 12px 24px;
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--ink);
+  flex-shrink: 0;
+}
+.logo-seal {
+  display: grid;
+  place-items: center;
+  width: 36px; height: 36px;
+  background: var(--shu);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  border-radius: 5px;
+  transform: rotate(-3deg);
+}
+.logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  line-height: 1.2;
+}
+.logo-text small {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 11px;
+  color: var(--ink-soft);
+  letter-spacing: 0.12em;
+}
+.global-nav {
+  display: flex;
+  gap: 22px;
+  margin-left: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 4px 4px;           /* フォーカス枠が切れないように */
+}
+.global-nav a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 4px 0;
+  border-bottom: 2px solid transparent;
+}
+.global-nav a:hover { border-bottom-color: var(--moss); }
+.header-tel {
+  flex-shrink: 0;
+  font-weight: 700;
+  font-size: 15px;
+  font-variant-numeric: tabular-nums;
+  text-decoration: none;
+  color: var(--moss-deep);
+  border: 1px solid var(--moss);
+  border-radius: 4px;
+  padding: 6px 14px;
+}
+.header-tel:hover { background: var(--sage-pale); }
+
+/* ---------- ヒーロー ---------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-bottom: 1px solid var(--line);
+}
+.spine {
+  position: absolute;
+  right: clamp(8px, 6vw, 90px);
+  top: 24px;
+  height: calc(100% - 48px);
+  color: #b7c4ab;
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 96px 24px 84px;
+}
+.hero-place {
+  margin: 0 0 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--moss-deep);
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(29px, 4.6vw, 44px);
+  line-height: 1.55;
+  letter-spacing: 0.02em;
+  margin: 0 0 28px;
+}
+.hero-lead {
+  max-width: 34em;
+  margin: 0 0 40px;
+  color: var(--ink-soft);
+}
+.hero-chart {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 0 40px;
+  border-top: 1px solid var(--ink);
+  border-bottom: 1px solid var(--line);
+  max-width: 600px;
+}
+.hero-chart div {
+  padding: 12px 28px 12px 0;
+  margin-right: 28px;
+}
+.hero-chart div:last-child { margin-right: 0; }
+.hero-chart dt {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.hero-chart dd {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 22px;
+  line-height: 1.3;
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+.hero-note { font-size: 13px; color: var(--ink-soft); margin: 0; max-width: 36em; }
+.hanko {
+  position: absolute;
+  right: clamp(16px, 9vw, 130px);
+  bottom: 48px;
+  display: grid;
+  place-items: center;
+  width: 64px; height: 64px;
+  background: var(--shu);
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 33px;
+  border-radius: 7px;
+  transform: rotate(-4deg);
+  opacity: 0.94;
+}
+
+/* ---------- ボタン ---------- */
+.btn {
+  display: inline-block;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 28px;
+  border-radius: 4px;
+}
+.btn-primary { background: var(--moss-deep); color: #fff; }
+.btn-primary:hover { background: var(--moss); }
+.btn-ghost {
+  background: transparent;
+  color: var(--moss-deep);
+  border: 1px solid var(--moss);
+}
+.btn-ghost:hover { background: var(--sage-pale); }
+.btn-primary:focus-visible { outline-color: var(--moss-deep); }
+
+/* ---------- セクション共通：項目欄レイアウト ---------- */
+.section { padding: 88px 0; }
+.section + .section { border-top: 1px solid var(--line); }
+.section .container {
+  display: grid;
+  grid-template-columns: var(--label-w) minmax(0, 1fr);
+  column-gap: var(--gutter);
+}
+.section .container > * { grid-column: 2; }
+.section .container > h2 { grid-column: 1; grid-row: 1 / span 12; }
+.section h2 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 23px;
+  letter-spacing: 0.04em;
+  line-height: 1.55;
+  margin: 0;
+  padding-top: 2px;
+}
+.section-lead { color: var(--ink-soft); margin: 0 0 32px; max-width: 38em; }
+
+/* ---------- お悩み ---------- */
+.worry-list {
+  list-style: none;
+  margin: 0 0 32px;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 36px;
+  border-top: 1px solid var(--ink);
+}
+.worry-list li {
+  position: relative;
+  padding: 14px 0 14px 30px;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+  line-height: 1.7;
+}
+/* 検査表のチェック欄 */
+.worry-list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 18px;
+  width: 15px; height: 15px;
+  border: 1.5px solid var(--moss);
+  background: var(--paper);
+}
+.worries-note { color: var(--ink-soft); max-width: 38em; margin: 0; }
+
+/* ---------- 当院について ---------- */
+.about-lead { max-width: 38em; margin: 0 0 32px; }
+.feature-list { margin: 0; border-top: 1px solid var(--ink); }
+.feature-row {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 8px 28px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.feature-row dt {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.6;
+}
+.feature-row dd { margin: 0; color: var(--ink-soft); max-width: 34em; }
+
+/* ---------- メニュー・料金（料金表） ---------- */
+.price-list { border-top: 1px solid var(--ink); }
+.price-row {
+  padding: 22px 0 20px;
+  border-bottom: 1px solid var(--line);
+}
+.price-head {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+.price-head h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 19px;
+  line-height: 1.5;
+  margin: 0;
+}
+.price-dots {
+  flex: 1;
+  min-width: 16px;
+  border-bottom: 1.5px dotted #aab39e;
+  transform: translateY(-4px);
+}
+.price-value {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.4;
+  font-variant-numeric: tabular-nums;
+  color: var(--moss-deep);
+  margin: 0;
+  white-space: nowrap;
+}
+.price-value-note { font-size: 14px; font-weight: 700; font-family: var(--font-body); }
+.price-desc {
+  margin: 4px 0 0;
+  max-width: 34em;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+/* 保険施術：塗りの箱をやめ、罫線と文字だけの付記にする */
+.insurance-box {
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  gap: 8px 28px;
+}
+.insurance-box h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0;
+}
+.insurance-box p { margin: 0; font-size: 14.5px; color: var(--ink-soft); max-width: 34em; }
+
+/* ---------- 営業時間 ---------- */
+.table-wrap { overflow-x: auto; }
+.hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+.hours-table th, .hours-table td {
+  border-bottom: 1px solid var(--line);
+  padding: 12px 8px;
+  text-align: center;
+  font-size: 14.5px;
+  line-height: 1.5;
+}
+.hours-table thead th { font-weight: 700; border-bottom-color: var(--ink-soft); }
+.hours-table tbody th { font-weight: 700; white-space: nowrap; text-align: left; padding-left: 0; }
+.hours-table thead th:first-child { text-align: left; padding-left: 0; }
+.hours-table td { color: var(--moss-deep); font-weight: 700; }
+.hours-table td.closed { color: var(--shu); }
+.hours-note { font-size: 13.5px; color: var(--ink-soft); margin: 14px 0 0; }
+
+/* ---------- アクセス ---------- */
+.access-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.access-info { margin: 0; border-top: 1px solid var(--ink); }
+.access-info div {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--line);
+}
+.access-info dt { font-weight: 700; }
+.access-info dd { margin: 0; }
+.access-info a { font-variant-numeric: tabular-nums; }
+.map-box {
+  border-top: 1px solid var(--ink);
+  padding-top: 14px;
+}
+.map-box h3 {
+  font-family: var(--font-display);
+  font-size: 17px;
+  line-height: 1.6;
+  margin: 0 0 6px;
+}
+.map-box p { margin: 0 0 18px; font-size: 14.5px; color: var(--ink-soft); }
+
+/* ---------- お問い合わせ ---------- */
+.tel-big {
+  display: inline-block;
+  justify-self: start;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(32px, 6vw, 46px);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  color: var(--moss-deep);
+  text-decoration: none;
+  border-bottom: 2px solid var(--moss);
+  line-height: 1.3;
+  margin: 0 0 20px;
+}
+.contact-note { font-size: 14px; color: var(--ink-soft); margin: 0; max-width: 40em; }
+
+/* ---------- 制作サンプルのご案内（備考欄） ---------- */
+.sample-note {
+  border-top: 1px solid var(--line);
+  padding: 40px 0 56px;
+}
+.sample-note .container {
+  display: grid;
+  grid-template-columns: var(--label-w) minmax(0, 1fr);
+  column-gap: var(--gutter);
+  align-items: baseline;
+}
+.sample-note h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin: 0;
+}
+.sample-note p {
+  margin: 0;
+  max-width: 36em;
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+/* ---------- フッター ---------- */
+.site-footer {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 44px 0 40px;
+}
+.footer-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 19px;
+  margin: 0 0 6px;
+}
+.site-footer p { margin: 0 0 4px; font-size: 14px; }
+.footer-demo { color: #b9beb0; font-size: 12.5px; margin-top: 14px; }
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 860px) {
+  :root { --label-w: 1fr; }
+  .section .container,
+  .sample-note .container { display: block; }
+  .section h2 { margin-bottom: 22px; }
+  .sample-note h2 { margin-bottom: 6px; }
+  .worry-list { grid-template-columns: 1fr; }
+  .access-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 720px) {
+  html { scroll-padding-top: 12px; }
+  .site-header { position: static; }
+  .header-inner { flex-wrap: wrap; gap: 8px 16px; padding: 12px 20px 8px; }
+  .global-nav {
+    order: 3;
+    flex: 0 0 100%;
+    margin-left: -4px;
+    gap: 20px;
+    border-top: 1px solid var(--line);
+    padding: 8px 4px 4px;
+  }
+  .global-nav a { padding: 8px 0; }
+  .header-tel { display: none; }
+  .container { padding: 0 20px; }
+  .hero-inner { padding: 56px 20px 84px; }
+  .spine { display: none; }
+  .hanko { width: 50px; height: 50px; font-size: 25px; bottom: 24px; right: 20px; }
+  .hero-chart div { padding-right: 16px; margin-right: 16px; }
+  .btn { padding: 14px 24px; }
+  .section { padding: 56px 0; }
+  .feature-row,
+  .insurance-box { grid-template-columns: 1fr; gap: 2px; }
+  .price-head h3 { font-size: 18px; }
+  .price-value { font-size: 21px; }
+  .price-value-note { font-size: 13px; }
+  .hours-table th, .hours-table td { padding: 11px 3px; font-size: 13px; }
+  .hours-table { min-width: 340px; }
+  .sample-note { padding: 32px 0 44px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
