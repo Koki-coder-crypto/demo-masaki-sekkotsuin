@@ -237,6 +237,15 @@ h2 {
 .map-box { background: var(--cream-deep); padding: 32px 28px; border-radius: 4px; }
 .map-box h3 { font-family: var(--font-head); font-size: 20px; color: var(--forest); margin-bottom: 8px; letter-spacing: .06em; }
 .map-box p { font-size: 14px; color: var(--muted); margin-bottom: 20px; }
+.map-embed { padding: 24px 20px; }
+.map-embed-frame {
+  display: block; width: 100%; aspect-ratio: 4 / 3; border: 1px solid var(--line);
+  border-radius: 4px; background: var(--cream); margin-bottom: 16px;
+}
+.map-actions { display: grid; gap: 10px; }
+.map-actions .btn { width: 100%; padding-inline: 16px; text-align: center; }
+.feature-row dd a { color: var(--forest); font-weight: 500; text-underline-offset: 3px; }
+@media (max-width: 900px) { .map-embed-frame { aspect-ratio: 16 / 10; } }
 
 /* Reserve */
 .contact { padding-top: 0; }
