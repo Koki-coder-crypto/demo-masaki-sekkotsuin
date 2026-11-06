@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style-v5.css">
 </head>
 <body>
 
@@ -22,6 +22,7 @@
       <a href="#menu">メニュー・料金</a>
       <a href="#hours">営業時間</a>
       <a href="#access">アクセス</a>
+      <a href="#faq">よくある質問</a>
       <a href="#contact">お問い合わせ</a>
     </nav>
     <a class="header-tel" href="tel:0582158969">058-215-8969</a>
@@ -178,6 +179,53 @@
     </div>
   </section>
 
+  <!-- よくある質問 -->
+  <section class="section faq" id="faq">
+    <div class="container">
+      <header class="sec-head">
+        <h2>よくある質問</h2>
+      </header>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1"><span class="faq-text">予約は必要ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
+            <p>ご予約はお電話で承っています。受付時間内に 058-215-8969 へお電話ください。ネット予約は行っておりませんので、お電話が確実です。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2"><span class="faq-text">健康保険は使えますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
+            <p>骨折・脱臼・捻挫・打撲・挫傷（肉離れ）など、ケガの施術には各種健康保険が使えます。ご来院の際は保険証をご持参ください。保険適用の可否は症状によりますので、お気軽にご相談ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3"><span class="faq-text">駐車場はありますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
+            <p>駐車場をご用意しています。マーサ21より車で1分の場所にあり、バス停「ふじの湯・まさき接骨院」からも徒歩1分です。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4"><span class="faq-text">支払い方法を教えてください</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" hidden>
+            <p>現金のほか、クレジットカード、QRコード決済（LINE Pay）に対応しています。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5"><span class="faq-text">子どもを連れて行っても大丈夫ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5" hidden>
+            <p>お子様連れの方も来院されています。産後骨盤矯正など、お子様連れで受けられるメニューもありますので、お気軽にご相談ください。</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6"><span class="faq-text">妊娠中でも施術を受けられますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6" hidden>
+            <p>妊娠中の腰痛・お悩みには、マタニティー整体をご用意しています。とってもソフトな整体ですので、安心して受けていただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- アクセス -->
   <section class="section access" id="access">
     <div class="container">
@@ -245,5 +293,14 @@
 
 <a class="sp-cta" href="tel:0582158969">電話で予約　058-215-8969</a>
 
+<script>
+document.querySelectorAll('.faq-btn').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    btn.setAttribute('aria-expanded', open ? 'false' : 'true');
+    document.getElementById(btn.getAttribute('aria-controls')).hidden = open;
+  });
+});
+</script>
 </body>
 </html>
