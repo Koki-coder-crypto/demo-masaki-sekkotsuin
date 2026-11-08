@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style-v6.css">
+<link rel="stylesheet" href="style-v7.css">
 </head>
 <body>
 
@@ -19,12 +19,12 @@
   <div class="header-inner">
     <a class="logo" href="#top">まさき接骨院<small>岐阜市正木中</small></a>
     <nav class="global-nav" aria-label="メインメニュー">
+      <a href="#symptoms">症状から探す</a>
       <a href="#about">当院について</a>
       <a href="#menu">メニュー・料金</a>
       <a href="#hours">営業時間</a>
       <a href="#access">アクセス</a>
       <a href="#faq">よくある質問</a>
-      <a href="#contact">お問い合わせ</a>
     </nav>
     <a class="header-tel" href="tel:0582158969">058-215-8969</a>
   </div>
@@ -32,123 +32,110 @@
 
 <main id="top">
 
-  <!-- ヒーロー -->
   <section class="hero">
-    <img class="hero-img" src="img/hero.jpg" alt="まさき接骨院での骨盤ストレッチの施術風景">
-    <div class="hero-inner">
-      <p class="hero-place">岐阜市正木中、マーサ21から車で1分</p>
-      <p class="hero-logo">まさき接骨院</p>
-      <h1>肩こり・腰の痛み・しびれで<br>お悩みの方、お任せ下さい</h1>
+    <div class="hero-copy">
+      <p class="hero-place">岐阜市正木中｜マーサ21から車で1分</p>
+      <h1>肩こり・腰の痛み・<br>しびれは、<span class="u">骨盤と姿勢</span>から<br>診る接骨院へ</h1>
       <p class="hero-lead">まさき接骨院は、全員がキャリア10年以上の医療系国家資格者。一回で効果を実感できる施術を心がけ、骨盤・姿勢の歪みから根本ケアを目指します。</p>
+      <div class="hero-rating">
+        <span class="score">4.77</span>
+        <span class="stars" aria-hidden="true">★★★★★</span>
+        <span class="cnt">エキテン口コミ 172件</span>
+      </div>
       <div class="hero-actions">
         <a class="btn btn-primary" href="tel:0582158969">電話で予約・相談する</a>
-        <a class="btn btn-ghost" href="#menu">メニュー・料金</a>
+        <a class="btn btn-outline" href="#menu">料金を確認する</a>
       </div>
     </div>
+    <figure class="hero-photo">
+      <img src="img/hero.jpg" alt="まさき接骨院での骨盤ストレッチの施術風景">
+      <figcaption>実際の施術風景（同院がエキテンに掲載した写真）</figcaption>
+    </figure>
   </section>
 
-  <dl class="trust-band">
-    <div><dt>エキテン口コミ</dt><dd>172件</dd></div>
-    <div><dt>評価</dt><dd>4.77</dd></div>
-    <div><dt>開院</dt><dd>2016年</dd></div>
-    <div><dt>駐車場</dt><dd>あり</dd></div>
+  <dl class="facts">
+    <div class="facts-inner">
+      <div><dt>開院</dt><dd>2016年</dd></div>
+      <div><dt>施術スタッフ</dt><dd>全員 国家資格者</dd></div>
+      <div><dt>経験</dt><dd>全員キャリア10年以上</dd></div>
+      <div><dt>駐車場</dt><dd>あり</dd></div>
+    </div>
   </dl>
 
-  <!-- お悩み -->
-  <section class="section worries">
-    <div class="container split">
-      <div class="split-text">
-        <header class="sec-head">
-          <h2>こんなお悩みは<br>ありませんか</h2>
-        </header>
-        <ul class="worry-list">
-          <li>頑固な肩こり・首こり、頭痛がつらい</li>
-          <li>腰の痛みや、足のしびれが気になる</li>
-          <li>猫背・巻き肩など姿勢の歪みを整えたい</li>
-          <li>膝・股関節・足首の痛みや違和感がある</li>
-          <li>妊娠中の腰痛を、やさしくケアしたい</li>
-          <li>産後の骨盤の開き・体型の変化が気になる</li>
-        </ul>
-        <p class="prose">肩こりや頭痛、首こりの原因は、猫背や巻き肩、頚椎のずれ、肩甲骨の位置異常など「悪い姿勢」にあることが少なくありません。当院では骨格にアプローチし、根本からの改善を目指します。</p>
-      </div>
-      <figure class="split-photo">
+  <section class="section" id="symptoms">
+    <div class="container">
+      <header class="sec-head">
+        <h2>症状から探す</h2>
+        <p class="sec-note">気になる症状から、対応するメニューをご案内します</p>
+      </header>
+      <ul class="symptom-grid">
+        <li><a href="#menu"><span class="s-name">頑固な肩こり・首こり、頭痛</span><span class="s-menu">猫背＋骨盤矯正 ほか</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="#menu"><span class="s-name">腰の痛み、足のしびれ</span><span class="s-menu">骨盤矯正</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="#menu"><span class="s-name">猫背・巻き肩、姿勢の歪み</span><span class="s-menu">猫背＋骨盤矯正</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="#menu"><span class="s-name">膝・股関節・足首の痛み</span><span class="s-menu">まずはお電話でご相談を</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="#menu"><span class="s-name">妊娠中の腰痛</span><span class="s-menu">マタニティー整体</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+        <li><a href="#menu"><span class="s-name">産後の骨盤の開き・体型の変化</span><span class="s-menu">骨盤矯正</span><span class="s-arrow" aria-hidden="true">→</span></a></li>
+      </ul>
+      <div class="symptom-photo">
         <img src="img/feature-neck.jpg" alt="首・頸部の施術のクローズアップ" loading="lazy">
-      </figure>
+        <div class="note">
+          <h3>肩こり・頭痛の原因は「姿勢」にあることが少なくありません</h3>
+          <p>肩こりや頭痛、首こりの原因は、猫背や巻き肩、頚椎のずれ、肩甲骨の位置異常など「悪い姿勢」にあることが少なくありません。当院では骨格にアプローチし、根本からの改善を目指します。</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- 当院について -->
-  <section class="section about" id="about">
+  <section class="section section-sky" id="about">
     <div class="container">
       <header class="sec-head">
         <h2>当院について</h2>
+        <p class="sec-note">2016年開院｜岐阜市正木中</p>
       </header>
-      <p class="about-lead">2016年、岐阜市正木中に開院。マーサ21から車で1分の接骨院です。スタッフ全員がキャリア10年以上の国家資格者で、骨盤矯正を中心に、お一人おひとりの体の状態に合わせた施術を行っています。</p>
-      <div class="about-grid">
-        <figure class="arch">
+      <div class="about-layout">
+        <figure class="about-photo">
           <img src="img/about.jpg" alt="まさき接骨院のスタッフ集合写真" loading="lazy">
+          <figcaption>スタッフ集合写真（同院がエキテンに掲載した店舗トップ画像）</figcaption>
         </figure>
-        <dl class="feature-list">
-          <div class="feature-row">
-            <dt>全員、国家資格者</dt>
-            <dd>施術を担当するのは全員キャリア10年以上の医療系国家資格者。初めての方でも安心・安全に受けていただけます。</dd>
-          </div>
-          <div class="feature-row">
-            <dt>口コミ評価 4.77</dt>
-            <dd>エキテンでは172件の口コミで評価4.77をいただいています。地域の皆さまに長く通っていただいている院です。<br><a href="https://www.ekiten.jp/shop_6023689/" target="_blank" rel="noopener">エキテンで口コミを見る</a></dd>
-          </div>
-          <div class="feature-row">
-            <dt>通いやすい立地</dt>
-            <dd>マーサ21より車で1分、バス停「ふじの湯・まさき接骨院」から徒歩1分。駐車場もご用意しています。</dd>
-          </div>
-          <div class="feature-row">
-            <dt>お支払い方法いろいろ</dt>
-            <dd>クレジットカード、QRコード決済（LINE Pay）に対応。お会計もスムーズです。</dd>
-          </div>
-        </dl>
+        <div>
+          <p class="about-lead">2016年、岐阜市正木中に開院。マーサ21から車で1分の接骨院です。スタッフ全員がキャリア10年以上の国家資格者で、骨盤矯正を中心に、お一人おひとりの体の状態に合わせた施術を行っています。</p>
+          <ol class="reason-list">
+            <li><span class="r-num">01</span><div><h3>全員、国家資格者</h3><p>施術を担当するのは全員キャリア10年以上の医療系国家資格者。初めての方でも安心・安全に受けていただけます。</p></div></li>
+            <li><span class="r-num">02</span><div><h3>口コミ評価 4.77（172件）</h3><p>エキテンでは172件の口コミで評価4.77をいただいています。地域の皆さまに長く通っていただいている院です。<br><a class="txt-link" href="https://www.ekiten.jp/shop_6023689/" target="_blank" rel="noopener">エキテンで口コミを見る</a></p></div></li>
+            <li><span class="r-num">03</span><div><h3>通いやすい立地</h3><p>マーサ21より車で1分、バス停「ふじの湯・まさき接骨院」から徒歩1分。駐車場もご用意しています。</p></div></li>
+            <li><span class="r-num">04</span><div><h3>お支払い方法いろいろ</h3><p>クレジットカード、QRコード決済（LINE Pay）に対応。お会計もスムーズです。</p></div></li>
+          </ol>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- メニュー・料金 -->
-  <section class="section menu" id="menu">
-    <div class="container container-wide">
+  <section class="section" id="menu">
+    <div class="container">
       <header class="sec-head">
         <h2>メニュー・料金</h2>
+        <p class="sec-note">自費施術メニューの一例（税込）</p>
       </header>
-      <p class="section-lead">自費施術メニューの一例です（税込）。ケガの施術については下記の「保険施術について」もご覧ください。</p>
-      <div class="menu-grid">
-        <article class="menu-card">
+      <div class="price-list">
+        <article class="price-row">
           <img src="img/menu-pelvis.jpg" alt="女性スタッフによる骨盤ストレッチの施術" loading="lazy">
-          <div class="menu-body">
-            <h3>骨盤矯正</h3>
-            <p class="menu-desc">初めての方でも安心・安全。医療系国家資格者による骨盤矯正で、効果をすぐ体感いただけます。</p>
-            <p class="menu-price">¥4,860<small>税込</small></p>
-          </div>
+          <div><h3>骨盤矯正</h3><p class="p-desc">初めての方でも安心・安全。医療系国家資格者による骨盤矯正で、効果をすぐ体感いただけます。</p></div>
+          <p class="p-price">¥4,860<small>税込</small></p>
         </article>
-        <article class="menu-card">
+        <article class="price-row">
           <img src="img/menu-maternity.jpg" alt="赤ちゃんを抱く女性スタッフ" loading="lazy">
-          <div class="menu-body">
-            <h3>マタニティー整体</h3>
-            <p class="menu-desc">妊娠中の腰痛・お悩みに。とってもソフトな整体で、安心して受けていただけます。</p>
-            <p class="menu-price">¥4,860<small>税込</small></p>
-          </div>
+          <div><h3>マタニティー整体</h3><p class="p-desc">妊娠中の腰痛・お悩みに。とってもソフトな整体で、安心して受けていただけます。</p></div>
+          <p class="p-price">¥4,860<small>税込</small></p>
         </article>
-        <article class="menu-card">
+        <article class="price-row">
           <img src="img/menu-beauty.jpg" alt="うつ伏せでの骨盤・背中の施術" loading="lazy">
-          <div class="menu-body">
-            <h3>美容整体</h3>
-            <p class="menu-desc">姿勢と骨盤を整え、見た目の印象から整える美容のための整体メニューです。</p>
-            <p class="menu-price">¥7,560<small>税込</small></p>
-          </div>
+          <div><h3>美容整体</h3><p class="p-desc">姿勢と骨盤を整え、見た目の印象から整える美容のための整体メニューです。</p></div>
+          <p class="p-price">¥7,560<small>税込</small></p>
         </article>
-        <article class="menu-card">
+        <article class="price-row">
           <img src="img/menu-posture.jpg" alt="待合スペースでお子様連れの患者様に対応するスタッフ" loading="lazy">
-          <div class="menu-body">
-            <h3>猫背＋骨盤矯正</h3>
-            <p class="menu-desc">頑固な肩こり、首コリ、頭痛、腰痛に。猫背も骨盤の歪みもWケアし、骨格にアプローチして根本からすっきり。</p>
-            <p class="menu-price menu-price-note">お問い合わせください</p>
-          </div>
+          <div><h3>猫背＋骨盤矯正</h3><p class="p-desc">頑固な肩こり、首コリ、頭痛、腰痛に。猫背も骨盤の歪みもWケアし、骨格にアプローチして根本からすっきり。</p></div>
+          <p class="p-price ask">お問い合わせください</p>
         </article>
       </div>
       <div class="insurance-box">
@@ -158,67 +145,75 @@
     </div>
   </section>
 
-  <!-- 営業時間 -->
-  <section class="section hours" id="hours">
+  <section class="section section-sky" id="hours">
     <div class="container">
       <header class="sec-head">
         <h2>営業時間</h2>
+        <p class="sec-note">木曜は午前のみ｜土曜は 8:30〜13:00</p>
       </header>
-      <div class="table-wrap">
-        <table class="hours-table">
-          <thead>
-            <tr><th scope="col">受付時間</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日・祝</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">9:00 〜 12:00</th><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>―</td><td class="closed">休</td></tr>
-            <tr><th scope="row">8:30 〜 13:00</th><td>―</td><td>―</td><td>―</td><td>―</td><td>―</td><td>●</td><td class="closed">休</td></tr>
-            <tr><th scope="row">16:00 〜 20:00</th><td>●</td><td>●</td><td>●</td><td>―</td><td>●</td><td>―</td><td class="closed">休</td></tr>
-          </tbody>
-        </table>
+      <div class="hours-flex">
+        <div>
+          <div class="table-wrap">
+            <table class="hours-table">
+              <thead>
+                <tr><th scope="col">受付時間</th><th scope="col">月</th><th scope="col">火</th><th scope="col">水</th><th scope="col">木</th><th scope="col">金</th><th scope="col">土</th><th scope="col">日・祝</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">9:00 〜 12:00</th><td>●</td><td>●</td><td>●</td><td>●</td><td>●</td><td>―</td><td class="closed">休</td></tr>
+                <tr><th scope="row">8:30 〜 13:00</th><td>―</td><td>―</td><td>―</td><td>―</td><td>―</td><td>●</td><td class="closed">休</td></tr>
+                <tr><th scope="row">16:00 〜 20:00</th><td>●</td><td>●</td><td>●</td><td>―</td><td>●</td><td>―</td><td class="closed">休</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="hours-note">木曜日は午前のみ、土曜日は 8:30〜13:00 の受付です。日曜・祝日は休診となります。</p>
+        </div>
+        <aside class="hours-side">
+          <h3>ご予約はお電話で</h3>
+          <p>ネット予約は行っておりません。受付時間内に下記番号へお電話ください。</p>
+          <a class="tel" href="tel:0582158969">058-215-8969</a>
+        </aside>
       </div>
-      <p class="hours-note">木曜日は午前のみ、土曜日は 8:30〜13:00 の受付です。日曜・祝日は休診となります。</p>
     </div>
   </section>
 
-  <!-- よくある質問 -->
-  <section class="section faq" id="faq">
+  <section class="section" id="faq">
     <div class="container">
       <header class="sec-head">
         <h2>よくある質問</h2>
       </header>
       <div class="faq-list">
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1"><span class="faq-text">予約は必要ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-1" aria-expanded="false" aria-controls="faq-panel-1"><span>予約は必要ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-1" role="region" aria-labelledby="faq-btn-1" hidden>
             <p>ご予約はお電話で承っています。受付時間内に 058-215-8969 へお電話ください。ネット予約は行っておりませんので、お電話が確実です。</p>
           </div>
         </div>
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2"><span class="faq-text">健康保険は使えますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-2" aria-expanded="false" aria-controls="faq-panel-2"><span>健康保険は使えますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-2" role="region" aria-labelledby="faq-btn-2" hidden>
             <p>骨折・脱臼・捻挫・打撲・挫傷（肉離れ）など、ケガの施術には各種健康保険が使えます。ご来院の際は保険証をご持参ください。保険適用の可否は症状によりますので、お気軽にご相談ください。</p>
           </div>
         </div>
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3"><span class="faq-text">駐車場はありますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-3" aria-expanded="false" aria-controls="faq-panel-3"><span>駐車場はありますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-3" role="region" aria-labelledby="faq-btn-3" hidden>
             <p>駐車場をご用意しています。マーサ21より車で1分の場所にあり、バス停「ふじの湯・まさき接骨院」からも徒歩1分です。</p>
           </div>
         </div>
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4"><span class="faq-text">支払い方法を教えてください</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-4" aria-expanded="false" aria-controls="faq-panel-4"><span>支払い方法を教えてください</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-4" role="region" aria-labelledby="faq-btn-4" hidden>
             <p>現金のほか、クレジットカード、QRコード決済（LINE Pay）に対応しています。</p>
           </div>
         </div>
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5"><span class="faq-text">子どもを連れて行っても大丈夫ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-5" aria-expanded="false" aria-controls="faq-panel-5"><span>子どもを連れて行っても大丈夫ですか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-5" role="region" aria-labelledby="faq-btn-5" hidden>
             <p>お子様連れの方も来院されています。産後骨盤矯正など、お子様連れで受けられるメニューもありますので、お気軽にご相談ください。</p>
           </div>
         </div>
         <div class="faq-item">
-          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6"><span class="faq-text">妊娠中でも施術を受けられますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
+          <h3 class="faq-q"><button type="button" class="faq-btn" id="faq-btn-6" aria-expanded="false" aria-controls="faq-panel-6"><span>妊娠中でも施術を受けられますか？</span><span class="faq-icon" aria-hidden="true"></span></button></h3>
           <div class="faq-panel" id="faq-panel-6" role="region" aria-labelledby="faq-btn-6" hidden>
             <p>妊娠中の腰痛・お悩みには、マタニティー整体をご用意しています。とってもソフトな整体ですので、安心して受けていただけます。</p>
           </div>
@@ -227,25 +222,24 @@
     </div>
   </section>
 
-  <!-- アクセス -->
-  <section class="section access" id="access">
+  <section class="section section-sky" id="access">
     <div class="container">
       <header class="sec-head">
         <h2>アクセス</h2>
+        <p class="sec-note">マーサ21より車で1分</p>
       </header>
       <div class="access-grid">
         <dl class="access-info">
           <div><dt>住所</dt><dd>〒502-0882<br>岐阜県岐阜市正木中3丁目2-17</dd></div>
-          <div><dt>電話</dt><dd><a href="tel:0582158969">058-215-8969</a></dd></div>
+          <div><dt>電話</dt><dd><a class="tel" href="tel:0582158969">058-215-8969</a></dd></div>
           <div><dt>アクセス</dt><dd>マーサ21より車で1分<br>バス停「ふじの湯・まさき接骨院」から徒歩1分（約30m）</dd></div>
           <div><dt>駐車場</dt><dd>あり</dd></div>
           <div><dt>お支払い</dt><dd>現金／クレジットカード／QRコード決済（LINE Pay）</dd></div>
         </dl>
-        <div class="map-box map-embed">
-          <h3>地図で確認する</h3>
-          <iframe class="map-embed-frame" src="https://www.google.com/maps?q=%E3%81%BE%E3%81%95%E3%81%8D%E6%8E%A5%E9%AA%A8%E9%99%A2%20%E5%B2%90%E9%98%9C%E7%9C%8C%E5%B2%90%E9%98%9C%E5%B8%82%E6%AD%A3%E6%9C%A8%E4%B8%AD3-2-17&amp;output=embed" loading="lazy" title="まさき接骨院の地図" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div>
+          <iframe class="map-frame" src="https://www.google.com/maps?q=%E3%81%BE%E3%81%95%E3%81%8D%E6%8E%A5%E9%AA%A8%E9%99%A2%20%E5%B2%90%E9%98%9C%E7%9C%8C%E5%B2%90%E9%98%9C%E5%B8%82%E6%AD%A3%E6%9C%A8%E4%B8%AD3-2-17&amp;output=embed" loading="lazy" title="まさき接骨院の地図" referrerpolicy="no-referrer-when-downgrade"></iframe>
           <div class="map-actions">
-            <a class="btn btn-outline" href="https://www.google.com/maps/dir/?api=1&amp;destination=%E3%81%BE%E3%81%95%E3%81%8D%E6%8E%A5%E9%AA%A8%E9%99%A2%20%E5%B2%90%E9%98%9C%E5%B8%82%E6%AD%A3%E6%9C%A8%E4%B8%AD3-2-17" target="_blank" rel="noopener">Googleマップで経路を見る</a>
+            <a class="btn btn-navy" href="https://www.google.com/maps/dir/?api=1&amp;destination=%E3%81%BE%E3%81%95%E3%81%8D%E6%8E%A5%E9%AA%A8%E9%99%A2%20%E5%B2%90%E9%98%9C%E5%B8%82%E6%AD%A3%E6%9C%A8%E4%B8%AD3-2-17" target="_blank" rel="noopener">Googleマップで経路を見る</a>
             <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&amp;query=%E3%81%BE%E3%81%95%E3%81%8D%E6%8E%A5%E9%AA%A8%E9%99%A2+%E5%B2%90%E9%98%9C%E5%B8%82%E6%AD%A3%E6%9C%A8%E4%B8%AD3-2-17" target="_blank" rel="noopener">Googleマップで口コミを見る</a>
           </div>
         </div>
@@ -253,21 +247,23 @@
     </div>
   </section>
 
-  <!-- お問い合わせ -->
   <section class="section contact" id="contact">
     <div class="container">
-      <div class="contact-card">
-        <h2>ご予約・<br class="sp">お問い合わせ</h2>
-        <p class="section-lead">ご予約・ご相談は、お電話が確実です。受付時間内にお気軽にお電話ください。</p>
-        <a class="tel-big" href="tel:0582158969">058-215-8969</a>
-        <a class="btn btn-primary btn-lg" href="tel:0582158969">電話で予約する</a>
+      <header class="sec-head">
+        <h2>ご予約・お問い合わせ</h2>
+      </header>
+      <div class="contact-grid">
+        <div>
+          <p>ご予約・ご相談は、お電話が確実です。受付時間内にお気軽にお電話ください。</p>
+          <a class="tel-big" href="tel:0582158969">058-215-8969</a>
+          <a class="btn btn-primary btn-lg" href="tel:0582158969">電話で予約する</a>
+        </div>
         <p class="contact-note">受付：平日 9:00〜12:00／16:00〜20:00（木曜は午前のみ）・土曜 8:30〜13:00<br>
         メニューやクーポンの詳細は <a href="https://www.ekiten.jp/shop_6023689/menu/" target="_blank" rel="noopener">エキテンの店舗ページ</a> でもご確認いただけます。</p>
       </div>
     </div>
   </section>
 
-  <!-- 制作サンプルのご案内 -->
   <aside class="sample-note" aria-labelledby="sample-note-title">
     <div class="container">
       <h2 id="sample-note-title">制作サンプルについて</h2>
